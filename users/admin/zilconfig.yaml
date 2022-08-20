@@ -94,8 +94,6 @@ proxy-groups:
     strategy: consistent-hashing
     url: http://hi.bonds.id/ping
     interval: 300
-    use:
-      - Zilvp
     proxies:
       - _universal
       - _sosmed
