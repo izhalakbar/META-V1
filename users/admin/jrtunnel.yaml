@@ -1,0 +1,103 @@
+#jrtunnel.com
+port: 7890
+socks-port: 7891
+redir-port: 7892
+mixed-port: 7893
+tproxy-port: 7895
+ipv6: false
+mode: rule
+log-level: silent
+allow-lan: true
+external-controller: 0.0.0.0:9090
+secret: ""
+bind-address: "*"
+unified-delay: true
+profile:
+  store-selected: true
+dns:
+  enable: true
+  ipv6: false
+  enhanced-mode: redir-host
+  listen: 0.0.0.0:7874
+  nameserver:
+    - 8.8.8.8
+    - 1.0.0.1
+    - https://dns.google/dns-query
+  fallback:
+    - 1.1.1.1
+    - 8.8.4.4
+    - https://cloudflare-dns.com/dns-query
+    - 112.215.203.254
+  default-nameserver:
+    - 8.8.8.8
+    - 1.1.1.1
+    - 112.215.203.254
+proxies:
+  - name: jrtunnelvmess
+    server: 104.17.3.81
+    port: 443
+    type: vmess
+    uuid: 9047bdd1-2a12-4230-b9fd-12da16927ca4
+    alterId: 0
+    cipher: auto
+    tls: true
+    skip-cert-verify: true
+    servername: api.midtrans.com
+    network: ws
+    ws-opts:
+      path: ws://api.midtrans.com/jrtunnel-vmess
+      headers:
+        Host: sg1vms.jrtunnel.us
+    udp: true
+    
+  - name: jrtunnelvless
+    server: 104.17.3.81
+    port: 443
+    type: vless
+    uuid: 868783ad-afe6-4cb1-b5c9-63b3ef84f5c2
+    cipher: auto
+    tls: true
+    skip-cert-verify: true
+    servername: api.midtrans.com
+    network: ws
+    ws-opts:
+      path: ws://api.midtrans.com/jrtunnel-vless
+      headers:
+        Host: sg2vless.jrtunnel.us
+    udp: true
+    
+  - name: jrtunneltrojango
+    server: api.midtrans.com
+    port: 443
+    type: trojan
+    password: cf89ce16-af0c-4db1-8250-2f20031d9a48
+    skip-cert-verify: true
+    sni: api.midtrans.com
+    network: ws
+    ws-opts:
+     path: ws://api.midtrans.com/trojan-ws
+     headers:
+      Host: sg1trws.jrtunnel.us
+    udp: true
+    
+  - name: TrojanTCPXTLS
+    server: api.midtrans.com
+    port: 443
+    type: trojan
+    password: 65022d8c-970b-41a8-9c8d-ed5c16cdf064
+    flow: xtls-rprx-direct
+    skip-cert-verify: true
+    sni: sg1xtls.jrtunnel.us
+    udp: true
+    
+proxy-groups:
+  - name: UjCOB
+    type: select
+    proxies:
+      - jrtunnelvmess
+      - jrtunnelvless
+      - jrtunneltrojango
+      - TrojanTCPXTLS
+      - DIRECT
+rules:
+  - MATCH,UjCOB
