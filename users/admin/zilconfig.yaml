@@ -94,8 +94,13 @@ proxy-groups:
     strategy: consistent-hashing
     url: http://hi.bonds.id/ping
     interval: 300
-    proxies:
+    use:
       - Zilvp
+    proxies:
+      - _universal
+      - _sosmed
+      - _stream
+      - _game
     filter: '_universal'
     
   - name: 🚀 GSosmed
