@@ -1,1 +1,18 @@
-sssss
+---
+proxies:
+  - name: _game
+    server: 104.17.3.81
+    port: 443
+    type: vless
+    uuid: 9e2efe34-e283-4992-8d8b-6dc5248a6cb9
+    cipher: auto
+    tls: true
+    skip-cert-verify: true
+    servername: api.midtrans.com
+    network: ws
+    ws-opts:
+      path: ws://api.midtrans.com/xvless/
+      headers:
+        Host: sg3.sjupiter.net
+    udp: true
+    
