@@ -1,0 +1,132 @@
+# ================= ZILNET META ==================
+---
+port: 7890
+socks-port: 7891
+redir-port: 7892
+mixed-port: 7893
+tproxy-port: 7895
+ipv6: false
+mode: rule
+log-level: info
+allow-lan: true
+external-controller: 0.0.0.0:9090
+secret: ""
+bind-address: "*"
+unified-delay: true
+
+dns:
+  enable: true
+  ipv6: false
+  enhanced-mode: redir-host
+  listen: 0.0.0.0:7874
+  nameserver:
+    - 8.8.8.8
+    - 1.0.0.1
+    - https://dns.google/dns-query
+  fallback:
+    - 1.1.1.1
+    - 8.8.4.4
+    - https://cloudflare-dns.com/dns-query
+    - 112.215.203.254
+  default-nameserver:
+    - 8.8.8.8
+    - 1.1.1.1
+    - 112.215.203.254
+    
+profile:
+  store-selected: true
+
+# ================= ZILNET META ==================
+
+rule-providers:
+  RP-Direct:
+    type: http
+    behavior: classical
+    url: https://raw.githubusercontent.com/izhalakbar/META-V1/main/rule_provider/direct.yaml
+    path: "./direct.yaml"
+  RP-Gaming:
+    type: http
+    behavior: classical
+    url: https://raw.githubusercontent.com/izhalakbar/META-V1/main/rule_provider/gaming.yaml
+    path: "./gaming.yaml"
+  RP-Reject:
+    type: http
+    behavior: classical
+    url: https://raw.githubusercontent.com/izhalakbar/META-V1/main/rule_provider/reject.yaml
+    path: "./reject.yaml"
+  RP-Sosmed:
+    type: file
+    behavior: classical
+    url: https://raw.githubusercontent.com/izhalakbar/META-V1/main/rule_provider/sosmed.yaml
+    path: "./sosmed.yaml"
+  RP-Streaming:
+    type: file
+    behavior: classical
+    url: https://raw.githubusercontent.com/izhalakbar/META-V1/main/rule_provider/streaming.yaml
+    path: "./streaming.yaml"
+    
+# ================= ZILNET META ==================
+
+# ================= ZILNET META ==================
+proxy-providers:
+  Zilvp:
+    type: http
+    url: https://raw.githubusercontent.com/izhalakbar/META-V1/main/users/admin/vp.yaml
+    interval: 3600
+    path: "./vp.yaml"
+    health-check:
+      enable: true
+      interval: 600
+      url: http://www.gstatic.com/generate_204
+  Zilvg:
+    type: http
+    url: https://raw.githubusercontent.com/izhalakbar/META-V1/main/users/admin/vg.yaml
+    interval: 3600
+    path: "./vg.yaml"
+    health-check:
+      enable: true
+      interval: 600
+      url: http://www.gstatic.com/generate_204
+# ================= ZILNET META ==================
+proxy-groups:
+  - name: 🚀 GUniversal
+    type: load-balance
+    strategy: consistent-hashing
+    url: http://hi.bonds.id/ping
+    interval: 300
+    proxies:
+      -  🚀 GSosmed
+      -  🚀 GStream
+      -  🚀 GGame
+    filter: '_universal'
+    
+  - name: 🚀 GSosmed
+    type: select
+    use:
+      - Zilvp
+    filter: '_sosmed'
+    
+  - name: 🚀 GStream
+    type: select
+    use:
+      - Zilvp
+    filter: '_stream'
+    
+  - name: 🚀 GGame
+    type: select
+    use:
+      - Zilvg
+    filter: '_game'
+# ================= ZILNET META ==================
+
+rules:
+  - GEOIP,private,DIRECT,no-resolve
+  - GEOIP,cn,DIRECT
+  
+  - IP-CIDR,198.18.0.1/16,REJECT,no-resolve
+  - RULE-SET,RP-Direct,DIRECT
+  - RULE-SET,RP-Reject,REJECT
+  - RULE-SET,RP-Gaming,🚀 GGame
+  - RULE-SET,RP-Sosmed,🚀 GSosmed
+  - RULE-SET,RP-Streaming,🚀 GStream
+  - MATCH,🚀 GUniversal
