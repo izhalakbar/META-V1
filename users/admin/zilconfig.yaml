@@ -43,27 +43,27 @@ rule-providers:
     type: http
     behavior: classical
     url: https://raw.githubusercontent.com/izhalakbar/META-V1/main/rule_provider/direct.yaml
-    path: "./rule_provider/direct.yaml"
+    path: "./direct.yaml"
   RP-Gaming:
     type: http
     behavior: classical
     url: https://raw.githubusercontent.com/izhalakbar/META-V1/main/rule_provider/gaming.yaml
-    path: "./rule_provider/gaming.yaml"
+    path: "./gaming.yaml"
   RP-Reject:
     type: http
     behavior: classical
     url: https://raw.githubusercontent.com/izhalakbar/META-V1/main/rule_provider/reject.yaml
-    path: "./rule_provider/reject.yaml"
+    path: "./reject.yaml"
   RP-Sosmed:
     type: file
     behavior: classical
     url: https://raw.githubusercontent.com/izhalakbar/META-V1/main/rule_provider/sosmed.yaml
-    path: "./rule_provider/sosmed.yaml"
+    path: "./sosmed.yaml"
   RP-Streaming:
     type: file
     behavior: classical
     url: https://raw.githubusercontent.com/izhalakbar/META-V1/main/rule_provider/streaming.yaml
-    path: "./rule_provider/streaming.yaml"
+    path: "./streaming.yaml"
     
 # ================= ZILNET META ==================
 
@@ -73,7 +73,7 @@ proxy-providers:
     type: http
     url: https://raw.githubusercontent.com/izhalakbar/META-V1/main/users/admin/vp.yaml
     interval: 3600
-    path: "./proxy_provider/vp.yaml"
+    path: "./vp.yaml"
     health-check:
       enable: true
       interval: 600
@@ -82,7 +82,7 @@ proxy-providers:
     type: http
     url: https://raw.githubusercontent.com/izhalakbar/META-V1/main/users/admin/vg.yaml
     interval: 3600
-    path: "./proxy_provider/vg.yaml"
+    path: "./vg.yaml"
     health-check:
       enable: true
       interval: 600
