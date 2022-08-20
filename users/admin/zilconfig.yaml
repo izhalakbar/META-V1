@@ -95,10 +95,9 @@ proxy-groups:
     url: http://hi.bonds.id/ping
     interval: 300
     proxies:
-      - _universal
-      - _sosmed
-      - _stream
-      - _game
+      -  🚀 GSosmed
+      -  🚀 GStream
+      -  🚀 GGame
     filter: '_universal'
     
   - name: 🚀 GSosmed
