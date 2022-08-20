@@ -90,8 +90,11 @@ proxy-providers:
 # ================= ZILNET META ==================
 proxy-groups:
   - name: 🚀 GUniversal
-    type: select
-    use:
+    type: load-balance
+    strategy: consistent-hashing
+    url: http://hi.bonds.id/ping
+    interval: 300
+    proxies:
       - Zilvp
     filter: '_universal'
     
