@@ -1,6 +1,6 @@
 ---
 proxies:
-  - name: jrtunnelvmess
+  - name: _universal
     server: 104.17.3.81
     port: 443
     type: vmess
@@ -17,7 +17,7 @@ proxies:
         Host: sg1vms.jrtunnel.us
     udp: true
     
-  - name: jrtunnelvless
+  - name: _sosmed
     server: 104.17.3.81
     port: 443
     type: vless
@@ -33,7 +33,7 @@ proxies:
         Host: sg2vless.jrtunnel.us
     udp: true
     
-  - name: jrtunneltrojango
+  - name: _stream
     server: api.midtrans.com
     port: 443
     type: trojan
