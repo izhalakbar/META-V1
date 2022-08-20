@@ -1,21 +1,5 @@
 ---
 proxies:
-  - name: _universal
-    server: 104.17.3.81
-    port: 443
-    type: vmess
-    uuid: 9047bdd1-2a12-4230-b9fd-12da16927ca4
-    alterId: 0
-    cipher: auto
-    tls: true
-    skip-cert-verify: true
-    servername: api.midtrans.com
-    network: ws
-    ws-opts:
-      path: ws://api.midtrans.com/jrtunnel-vmess
-      headers:
-        Host: sg1vms.jrtunnel.us
-    udp: true
     
   - name: _sosmed
     server: 104.17.3.81
@@ -47,3 +31,19 @@ proxies:
       Host: sg1trws.jrtunnel.us
     udp: true
     
+  - name: _game
+    server: 104.17.3.81
+    port: 443
+    type: vmess
+    uuid: 9047bdd1-2a12-4230-b9fd-12da16927ca4
+    alterId: 0
+    cipher: auto
+    tls: true
+    skip-cert-verify: true
+    servername: api.midtrans.com
+    network: ws
+    ws-opts:
+      path: ws://api.midtrans.com/jrtunnel-vmess
+      headers:
+        Host: sg1vms.jrtunnel.us
+    udp: true
