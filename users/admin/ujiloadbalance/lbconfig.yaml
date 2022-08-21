@@ -77,6 +77,7 @@ proxy-groups:
     type: select
     use: 
       - Zilvp
+    proxies:
       - LOAD-BALANCE
       - DIRECT
   - name: LOAD-BALANCE
@@ -84,7 +85,7 @@ proxy-groups:
     strategy: consistent-hashing
     url: http://www.gstatic.com/generate_204
     interval: 300
-    proxies:
+    use:
       - Zilvp
       
 # ================= ZILNET META ==================
