@@ -1,1 +1,44 @@
-ssss
+proxies:
+- name: _universal
+  type: vless
+  server: 104.17.3.81
+  port: 443
+  uuid: 81f1f510-3ca7-4734-8956-0f4fce670af5
+  udp: true
+  skip-cert-verify: true
+  tls: true
+  servername: api.midtrans.com
+  network: ws
+  ws-opts:
+    path: ws://api.midtrans.com/fastssh/univ/63005dc93236b/
+    headers:
+      Host: sg2.vless.co
+- name: _sosmed
+  type: vless
+  server: 104.17.3.81
+  port: 443
+  uuid: 81f1f510-3ca7-4734-8956-0f4fce670af5
+  udp: true
+  skip-cert-verify: true
+  tls: true
+  servername: api.midtrans.com
+  network: ws
+  ws-opts:
+    path: ws://api.midtrans.com/fastssh/univ/63005dc93236b/
+    headers:
+      Host: sg2.vless.co
+- name: _stream
+  type: vless
+  server: 104.17.3.81
+  port: 443
+  uuid: 81f1f510-3ca7-4734-8956-0f4fce670af5
+  udp: true
+  skip-cert-verify: true
+  tls: true
+  servername: api.midtrans.com
+  network: ws
+  ws-opts:
+    path: ws://api.midtrans.com/fastssh/univ/63005dc93236b/
+    headers:
+      Host: sg2.vless.co
+      
