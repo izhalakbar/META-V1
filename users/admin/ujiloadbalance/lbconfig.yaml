@@ -84,7 +84,7 @@ proxy-groups:
     strategy: consistent-hashing
     url: http://www.gstatic.com/generate_204
     interval: 300
-    use:
+    proxies:
       - Zilvp
       
 # ================= ZILNET META ==================
