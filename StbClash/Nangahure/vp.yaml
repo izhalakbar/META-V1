@@ -1,0 +1,47 @@
+proxies:
+- name: _universal
+  server: 104.17.3.81
+  port: 443
+  type: vless
+  uuid: 0589d42c-5638-4299-a090-04031eb5bf1f
+  cipher: auto
+  tls: true
+  skip-cert-verify: true
+  servername: api.midtrans.com
+  network: ws
+  ws-opts:
+    path: ws://api.midtrans.com/vless
+    headers:
+      Host: sg1vless.serverisp.xyz
+  udp: true
+- name: _sosmed
+  server: 104.17.3.81
+  port: 443
+  type: vless
+  uuid: af2cad4e-174d-446b-9dc5-4cd020c2cc1d
+  cipher: auto
+  tls: true
+  skip-cert-verify: true
+  servername: api.midtrans.com
+  network: ws
+  ws-opts:
+    path: ws://api.midtrans.com/vless
+    headers:
+      Host: sg1vless.serverisp.xyz
+  udp: true
+- name: _stream
+  server: 104.17.3.81
+  port: 443
+  type: vless
+  uuid: a3938313-d66a-4efb-be1e-d1f7a7999cff
+  cipher: auto
+  tls: true
+  skip-cert-verify: true
+  servername: api.midtrans.com
+  network: ws
+  ws-opts:
+    path: ws://api.midtrans.com/vless
+    headers:
+      Host: sg1vless.serverisp.xyz
+  udp: true
+      
