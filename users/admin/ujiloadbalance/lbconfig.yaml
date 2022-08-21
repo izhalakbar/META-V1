@@ -64,7 +64,7 @@ rule-providers:
 proxy-providers:
   Zilvp:
     type: http
-    url: https://raw.githubusercontent.com/izhalakbar/META-V1/main/users/admin/vp.yaml
+    url: https://raw.githubusercontent.com/izhalakbar/META-V1/main/users/admin/ujiloadbalance/vp.yaml
     interval: 3600
     path: "./vp.yaml"
     health-check:
