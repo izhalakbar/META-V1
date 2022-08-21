@@ -79,7 +79,9 @@ proxy-groups:
       - Zilvp
     proxies:
       - LOAD-BALANCE
-      - DIRECT
+      - LB1
+      - LB2
+      
   - name: LOAD-BALANCE
     type: load-balance
     strategy: consistent-hashing
