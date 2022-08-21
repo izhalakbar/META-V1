@@ -127,12 +127,15 @@ prohttp:
   store-selected: true
   store-fake-ip: true
 rules:
-- DST-PORT,7895,REJECT
-- DST-PORT,7892,REJECT
-- IP-CIDR,198.18.0.1/16,REJECT,no-resolve
-- RULE-SET,RP-Direct,DIRECT
-- RULE-SET,RP-Reject,REJECT
-- MATCH,GUniversal
+  - DST-PORT,7895,REJECT
+  - DST-PORT,7892,REJECT
+  - IP-CIDR,198.18.0.1/16,REJECT,no-resolve
+  - RULE-SET,RP-Direct,DIRECT
+  - RULE-SET,RP-Reject,REJECT
+  - RULE-SET,RP-Gaming,GGame
+  - RULE-SET,RP-Sosmed,GSosmed
+  - RULE-SET,RP-Streaming,GStream
+  - MATCH,GUniversal
 # ================= ZILNET META ==================
 geodata-mode: false
 geodata-loader: memconservative
