@@ -14,7 +14,6 @@ proxies:
     headers:
       Host: sg1vless.serverisp.xyz
   udp: true
-  
 - name: _sosmed
   server: 104.17.3.81
   port: 443
