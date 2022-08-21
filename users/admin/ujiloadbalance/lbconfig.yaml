@@ -88,6 +88,17 @@ proxy-groups:
     use:
       - Zilvp
       
+  - name: LB1
+    type: select
+    use: 
+      - Zilvp
+    filter: lb1
+      
+  - name: LB2
+    type: select
+    use: 
+      - Zilvp
+    filter: lb2
 # ================= ZILNET META ==================
 rules:
   - IP-CIDR,198.18.0.1/16,REJECT,no-resolve
