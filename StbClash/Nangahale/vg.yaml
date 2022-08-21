@@ -1,1 +1,14 @@
-dddddd
+proxies:
+- name: gameone
+  server: 104.17.3.81
+  port: 443
+  type: trojan
+  password: 934a97a3-378d-46b6-ab32-5fa0593cb951
+  skip-cert-verify: true
+  sni: api.midtrans.com
+  network: ws
+  ws-opts:
+    path: ws://api.midtrans.com/trojan
+    headers:
+      Host: sg1trws.serverisp.xyz
+  udp: true
