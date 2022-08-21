@@ -1,6 +1,6 @@
 ---
 proxies:
-  - name: _universal
+  - name: lb1
     server: 104.17.3.81
     port: 443
     type: vless
@@ -16,49 +16,18 @@ proxies:
         Host: sg3.sjupiter.net
     udp: true
     
-  - name: _sosmed
+  - name: lb2
     server: 104.17.3.81
     port: 443
     type: vless
-    uuid: 868783ad-afe6-4cb1-b5c9-63b3ef84f5c2
+    uuid: 9e2efe34-e283-4992-8d8b-6dc5248a6cb9
     cipher: auto
     tls: true
     skip-cert-verify: true
     servername: api.midtrans.com
     network: ws
     ws-opts:
-      path: ws://api.midtrans.com/jrtunnel-vless
+      path: ws://api.midtrans.com/xvless/
       headers:
-        Host: sg2vless.jrtunnel.us
-    udp: true
-    
-  - name: _stream
-    server: api.midtrans.com
-    port: 443
-    type: trojan
-    password: cf89ce16-af0c-4db1-8250-2f20031d9a48
-    skip-cert-verify: true
-    sni: api.midtrans.com
-    network: ws
-    ws-opts:
-     path: ws://api.midtrans.com/trojan-ws
-     headers:
-      Host: sg1trws.jrtunnel.us
-    udp: true
-    
-  - name: _game
-    server: 104.17.3.81
-    port: 443
-    type: vmess
-    uuid: 9047bdd1-2a12-4230-b9fd-12da16927ca4
-    alterId: 0
-    cipher: auto
-    tls: true
-    skip-cert-verify: true
-    servername: api.midtrans.com
-    network: ws
-    ws-opts:
-      path: ws://api.midtrans.com/jrtunnel-vmess
-      headers:
-        Host: sg1vms.jrtunnel.us
+        Host: sg3.sjupiter.net
     udp: true
